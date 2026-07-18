@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="32" fill="#071f3f"/>
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700" fill="#f8cc5f">LM</text>
+  <circle cx="96" cy="32" r="10" fill="#f8cc5f" opacity="0.85"/>
+</svg>
