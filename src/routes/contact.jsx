@@ -54,7 +54,7 @@ function Contact() {
         <div className="rounded-xl border border-border bg-card overflow-hidden shadow-card">
           <iframe
             title="Carte — Lycée Mahazengy Fianarantsoa"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=47.070%2C-21.470%2C47.130%2C-21.430&layer=mapnik&marker=-21.4497%2C47.0996"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=47.033%2C-21.500%2C47.093%2C-21.467&layer=mapnik&marker=-21.48354%2C47.06277"
             className="w-full h-[420px] border-0"
             loading="lazy"
           />
