@@ -69,7 +69,7 @@ export const Route = createRootRouteWithContext()({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Lycée Mahazengy Fianarantsoa — Établissement public secondaire" },
-      { name: "description", content: "Site officiel du Lycée Mahazengy à Fianarantsoa (Madagascar). Historique, proviseurs, personnel, résultats du BAC, fiche technique et documents officiels." },
+      { name: "description", content: "Site officiel du Lycée Mahazengy à Fianarantsoa (Madagascar). Historique, proviseurs, personnel, résultats du BAC et fiche technique." },
       { name: "author", content: "Lycée Mahazengy Fianarantsoa" },
       { property: "og:title", content: "Lycée Mahazengy Fianarantsoa" },
       { property: "og:description", content: "Établissement public secondaire de la CISCO Fianarantsoa, DREN Haute Matsiatra. Depuis 2010." },
@@ -119,6 +119,5 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-
 
 

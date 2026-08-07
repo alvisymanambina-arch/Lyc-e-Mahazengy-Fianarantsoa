@@ -15,7 +15,6 @@ import { Route as ProviseursRouteImport } from './routes/proviseurs'
 import { Route as PersonnelRouteImport } from './routes/personnel'
 import { Route as HistoriqueRouteImport } from './routes/historique'
 import { Route as FicheTechniqueRouteImport } from './routes/fiche-technique'
-import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -49,11 +48,6 @@ const FicheTechniqueRoute = FicheTechniqueRouteImport.update({
   path: '/fiche-technique',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocumentsRoute = DocumentsRouteImport.update({
-  id: '/documents',
-  path: '/documents',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -68,7 +62,6 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/documents': typeof DocumentsRoute
   '/fiche-technique': typeof FicheTechniqueRoute
   '/historique': typeof HistoriqueRoute
   '/personnel': typeof PersonnelRoute
@@ -79,7 +72,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/documents': typeof DocumentsRoute
   '/fiche-technique': typeof FicheTechniqueRoute
   '/historique': typeof HistoriqueRoute
   '/personnel': typeof PersonnelRoute
@@ -91,7 +83,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/documents': typeof DocumentsRoute
   '/fiche-technique': typeof FicheTechniqueRoute
   '/historique': typeof HistoriqueRoute
   '/personnel': typeof PersonnelRoute
@@ -104,7 +95,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contact'
-    | '/documents'
     | '/fiche-technique'
     | '/historique'
     | '/personnel'
@@ -115,7 +105,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contact'
-    | '/documents'
     | '/fiche-technique'
     | '/historique'
     | '/personnel'
@@ -126,7 +115,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contact'
-    | '/documents'
     | '/fiche-technique'
     | '/historique'
     | '/personnel'
@@ -138,7 +126,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  DocumentsRoute: typeof DocumentsRoute
   FicheTechniqueRoute: typeof FicheTechniqueRoute
   HistoriqueRoute: typeof HistoriqueRoute
   PersonnelRoute: typeof PersonnelRoute
@@ -191,13 +178,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FicheTechniqueRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/documents': {
-      id: '/documents'
-      path: '/documents'
-      fullPath: '/documents'
-      preLoaderRoute: typeof DocumentsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -218,7 +198,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  DocumentsRoute: DocumentsRoute,
   FicheTechniqueRoute: FicheTechniqueRoute,
   HistoriqueRoute: HistoriqueRoute,
   PersonnelRoute: PersonnelRoute,

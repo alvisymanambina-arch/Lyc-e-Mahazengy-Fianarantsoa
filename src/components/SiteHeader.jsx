@@ -9,7 +9,6 @@ const nav = [
   { to: "/personnel", label: "Personnel" },
   { to: "/resultats", label: "Résultats BAC" },
   { to: "/fiche-technique", label: "Fiche technique" },
-  { to: "/documents", label: "Documents" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -66,4 +65,3 @@ export function SiteHeader() {
     </header>
   );
 }
-

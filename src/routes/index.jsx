@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, GraduationCap, Users, Building2, Trophy, BookOpen, FileText } from "lucide-react";
+import { ArrowRight, GraduationCap, Users, Building2, Trophy, BookOpen } from "lucide-react";
 import hero from "@/assets/lycee-facade.jpg";
 import proviseurActuel from "@/assets/proviseurs/p6-ramaholisoa.jpg";
 
@@ -28,7 +28,6 @@ const cards = [
   { to: "/resultats", icon: Trophy, title: "Résultats du BAC", desc: "Historique complet des résultats du baccalauréat depuis 2013." },
   { to: "/personnel", icon: GraduationCap, title: "Personnel", desc: "Les 45 enseignants et administratifs qui accompagnent nos élèves." },
   { to: "/fiche-technique", icon: Building2, title: "Fiche technique", desc: "Infrastructures, superficie, capacité et besoins de l'établissement." },
-  { to: "/documents", icon: FileText, title: "Documents officiels", desc: "Rapports de rentrée, situations d'effectifs et archives à télécharger." },
 ];
 
 function Home() {

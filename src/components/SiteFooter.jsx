@@ -23,7 +23,6 @@ export function SiteFooter() {
             <li><Link to="/personnel" className="hover:text-gold">Personnel</Link></li>
             <li><Link to="/resultats" className="hover:text-gold">Résultats BAC</Link></li>
             <li><Link to="/fiche-technique" className="hover:text-gold">Fiche technique</Link></li>
-            <li><Link to="/documents" className="hover:text-gold">Documents</Link></li>
             <li><Link to="/contact" className="hover:text-gold">Contact</Link></li>
           </ul>
         </div>
