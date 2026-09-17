@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResultatsRouteImport } from './routes/resultats'
 import { Route as ProviseursRouteImport } from './routes/proviseurs'
 import { Route as PersonnelRouteImport } from './routes/personnel'
+import { Route as InscriptionRouteImport } from './routes/inscription'
 import { Route as HistoriqueRouteImport } from './routes/historique'
 import { Route as FicheTechniqueRouteImport } from './routes/fiche-technique'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -36,6 +37,11 @@ const ProviseursRoute = ProviseursRouteImport.update({
 const PersonnelRoute = PersonnelRouteImport.update({
   id: '/personnel',
   path: '/personnel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InscriptionRoute = InscriptionRouteImport.update({
+  id: '/inscription',
+  path: '/inscription',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HistoriqueRoute = HistoriqueRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/fiche-technique': typeof FicheTechniqueRoute
   '/historique': typeof HistoriqueRoute
+  '/inscription': typeof InscriptionRoute
   '/personnel': typeof PersonnelRoute
   '/proviseurs': typeof ProviseursRoute
   '/resultats': typeof ResultatsRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/fiche-technique': typeof FicheTechniqueRoute
   '/historique': typeof HistoriqueRoute
+  '/inscription': typeof InscriptionRoute
   '/personnel': typeof PersonnelRoute
   '/proviseurs': typeof ProviseursRoute
   '/resultats': typeof ResultatsRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/fiche-technique': typeof FicheTechniqueRoute
   '/historique': typeof HistoriqueRoute
+  '/inscription': typeof InscriptionRoute
   '/personnel': typeof PersonnelRoute
   '/proviseurs': typeof ProviseursRoute
   '/resultats': typeof ResultatsRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/fiche-technique'
     | '/historique'
+    | '/inscription'
     | '/personnel'
     | '/proviseurs'
     | '/resultats'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/fiche-technique'
     | '/historique'
+    | '/inscription'
     | '/personnel'
     | '/proviseurs'
     | '/resultats'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/fiche-technique'
     | '/historique'
+    | '/inscription'
     | '/personnel'
     | '/proviseurs'
     | '/resultats'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FicheTechniqueRoute: typeof FicheTechniqueRoute
   HistoriqueRoute: typeof HistoriqueRoute
+  InscriptionRoute: typeof InscriptionRoute
   PersonnelRoute: typeof PersonnelRoute
   ProviseursRoute: typeof ProviseursRoute
   ResultatsRoute: typeof ResultatsRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/personnel'
       fullPath: '/personnel'
       preLoaderRoute: typeof PersonnelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inscription': {
+      id: '/inscription'
+      path: '/inscription'
+      fullPath: '/inscription'
+      preLoaderRoute: typeof InscriptionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/historique': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FicheTechniqueRoute: FicheTechniqueRoute,
   HistoriqueRoute: HistoriqueRoute,
+  InscriptionRoute: InscriptionRoute,
   PersonnelRoute: PersonnelRoute,
   ProviseursRoute: ProviseursRoute,
   ResultatsRoute: ResultatsRoute,

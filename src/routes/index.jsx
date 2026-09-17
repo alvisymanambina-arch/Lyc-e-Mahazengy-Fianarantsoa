@@ -7,9 +7,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Lycée Mahazengy Fianarantsoa — Accueil" },
-      { name: "description", content: "Bienvenue au Lycée Mahazengy, établissement public secondaire de Fianarantsoa depuis 2010. Découvrez notre histoire, notre équipe et nos résultats." },
+      {
+        name: "description",
+        content:
+          "Bienvenue au Lycée Mahazengy, établissement public secondaire de Fianarantsoa depuis 2010. Découvrez notre histoire, notre équipe et nos résultats.",
+      },
       { property: "og:title", content: "Lycée Mahazengy Fianarantsoa" },
-      { property: "og:description", content: "Établissement public secondaire depuis 2010, don de la République Populaire de Chine." },
+      {
+        property: "og:description",
+        content:
+          "Établissement public secondaire depuis 2010, don de la République Populaire de Chine.",
+      },
     ],
   }),
   component: Home,
@@ -23,11 +31,36 @@ const highlights = [
 ];
 
 const cards = [
-  { to: "/historique", icon: BookOpen, title: "Historique du Lycée", desc: "De sa fondation en 2010 à aujourd'hui : un don de la Chine devenu pilier éducatif de Fianarantsoa." },
-  { to: "/proviseurs", icon: Users, title: "Nos Proviseurs", desc: "Les six chefs d'établissement successifs qui ont façonné le Lycée Mahazengy." },
-  { to: "/resultats", icon: Trophy, title: "Résultats du BAC", desc: "Historique complet des résultats du baccalauréat depuis 2013." },
-  { to: "/personnel", icon: GraduationCap, title: "Personnel", desc: "Les 45 enseignants et administratifs qui accompagnent nos élèves." },
-  { to: "/fiche-technique", icon: Building2, title: "Fiche technique", desc: "Infrastructures, superficie, capacité et besoins de l'établissement." },
+  {
+    to: "/historique",
+    icon: BookOpen,
+    title: "Historique du Lycée",
+    desc: "De sa fondation en 2010 à aujourd'hui : un don de la Chine devenu pilier éducatif de Fianarantsoa.",
+  },
+  {
+    to: "/proviseurs",
+    icon: Users,
+    title: "Nos Proviseurs",
+    desc: "Les six chefs d'établissement successifs qui ont façonné le Lycée Mahazengy.",
+  },
+  {
+    to: "/resultats",
+    icon: Trophy,
+    title: "Résultats du BAC",
+    desc: "Historique complet des résultats du baccalauréat depuis 2013.",
+  },
+  {
+    to: "/personnel",
+    icon: GraduationCap,
+    title: "Personnel",
+    desc: "Les 45 enseignants et administratifs qui accompagnent nos élèves.",
+  },
+  {
+    to: "/fiche-technique",
+    icon: Building2,
+    title: "Fiche technique",
+    desc: "Infrastructures, superficie, capacité et besoins de l'établissement.",
+  },
 ];
 
 function Home() {
@@ -36,7 +69,13 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={hero} alt="Cour du Lycée Mahazengy" className="h-full w-full object-cover" width={1600} height={900} />
+          <img
+            src={hero}
+            alt="Cour du Lycée Mahazengy"
+            className="h-full w-full object-cover"
+            width={1600}
+            height={900}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
         </div>
         <div className="relative container-page py-24 md:py-36 text-primary-foreground">
@@ -45,19 +84,25 @@ function Home() {
           </p>
           <h1 className="mt-6 max-w-3xl font-display text-4xl font-bold leading-tight md:text-6xl">
             Lycée Mahazengy
-            <span className="block text-gold">L'excellence au cœur de Fianarantsoa</span>
+            <span className="block text-gold">L&apos;excellence au cœur de Fianarantsoa</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/80 leading-relaxed">
             Établissement public secondaire fondé en 2010, don de la République Populaire de Chine.
-            Nous formons chaque année des centaines d'élèves aux séries L, S et OSE dans une tradition
-            d'excellence et de rigueur.
+            Nous formons chaque année des centaines d&apos;élèves aux séries L, S et OSE dans une
+            tradition d&apos;excellence et de rigueur.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/historique" className="inline-flex items-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground hover:bg-gold/90 transition-colors shadow-elegant">
+            <Link
+              to="/historique"
+              className="inline-flex items-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground hover:bg-gold/90 transition-colors shadow-elegant"
+            >
               Découvrir notre histoire
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 backdrop-blur px-6 py-3 text-sm font-semibold text-white hover:bg-white/10">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 backdrop-blur px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+            >
               Nous contacter
             </Link>
           </div>
@@ -74,7 +119,9 @@ function Home() {
               </div>
               <div>
                 <div className="font-display text-2xl font-bold text-navy">{h.value}</div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground">{h.label}</div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                  {h.label}
+                </div>
               </div>
             </div>
           ))}
@@ -86,19 +133,26 @@ function Home() {
         <div className="grid gap-10 md:grid-cols-5 items-center">
           <div className="md:col-span-2">
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-elegant">
-              <img src={proviseurActuel} alt="Mme RAMAHOLISOA Hasiniaina Santatra, Proviseur" className="h-full w-full object-cover" loading="lazy" />
+              <img
+                src={proviseurActuel}
+                alt="Mme RAMAHOLISOA Hasiniaina Santatra, Proviseur"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
           <div className="md:col-span-3">
-            <p className="text-sm font-medium uppercase tracking-wider text-gold">Mot du Proviseur</p>
+            <p className="text-sm font-medium uppercase tracking-wider text-gold">
+              Mot du Proviseur
+            </p>
             <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-navy">
-              Un établissement en pleine croissance, tourné vers l'excellence
+              Un établissement en pleine croissance, tourné vers l&apos;excellence
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Depuis son ouverture en 2010, le Lycée Mahazengy s'est imposé comme l'un des trois lycées
-              publics de la CISCO Fianarantsoa. Sous notre direction, l'établissement a renoué l'amitié
-              sino-malagasy avec l'introduction du Mandarin au programme scolaire, et poursuit son
-              œuvre au service de la jeunesse de la Haute Matsiatra.
+              Depuis son ouverture en 2010, le Lycée Mahazengy est devenu un des trois lycées
+              publics de la CISCO Fianarantsoa. Sous notre direction, cet établissement a renforcé
+              la relation sino-malagasy avec l introduction du Mandarin au programme scolaire, et
+              poursuit son œuvre au service de la jeunesse de la Haute Matsiatra.
             </p>
             <p className="mt-4 text-navy font-display text-lg font-semibold">
               Mme RAMAHOLISOA Hasiniaina Santatra
@@ -113,12 +167,18 @@ function Home() {
         <div className="flex items-end justify-between flex-wrap gap-4">
           <div>
             <p className="text-sm font-medium uppercase tracking-wider text-gold">Explorer</p>
-            <h2 className="mt-2 font-display text-3xl md:text-4xl font-bold text-navy">Tout sur le Lycée Mahazengy</h2>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl font-bold text-navy">
+              Tout sur le Lycée Mahazengy
+            </h2>
           </div>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((c) => (
-            <Link key={c.to} to={c.to} className="group rounded-xl border border-border bg-card p-6 shadow-card hover:shadow-elegant hover:-translate-y-0.5 transition-all">
+            <Link
+              key={c.to}
+              to={c.to}
+              className="group rounded-xl border border-border bg-card p-6 shadow-card hover:shadow-elegant hover:-translate-y-0.5 transition-all"
+            >
               <div className="flex h-11 w-11 items-center justify-center rounded-md bg-navy text-gold">
                 <c.icon className="h-5 w-5" />
               </div>
