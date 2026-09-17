@@ -24,7 +24,7 @@ const documents = [
   "Photo d'identité",
 ];
 
-const ESP32_BASE_URL = (import.meta.env.VITE_ESP32_URL || "http://192.168.4.1").replace(/\/$/, "");
+const ESP32_BASE_URL = (import.meta.env.VITE_ESP32_URL || "http://192.168.137.63").replace(/\/$/, "");
 
 function Inscription() {
   const [nom, setNom] = useState("");

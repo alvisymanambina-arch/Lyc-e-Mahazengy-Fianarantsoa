@@ -3,8 +3,8 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-const char* WIFI_SSID = "LYCEE_WIFI";
-const char* WIFI_PASSWORD = "votre_mot_de_passe";
+const char* WIFI_SSID = "Gastrier";
+const char* WIFI_PASSWORD = "123456789";
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 WebServer server(80);
