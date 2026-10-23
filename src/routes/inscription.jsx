@@ -24,7 +24,7 @@ const documents = [
   "Photo d'identité",
 ];
 
-const ESP32_BASE_URL = (import.meta.env.VITE_ESP32_URL || "http://192.168.137.63").replace(/\/$/, "");
+const ESP32_BASE_URL = (import.meta.env.VITE_ESP32_URL || "").trim().replace(/\/$/, "");
 
 function Inscription() {
   const [nom, setNom] = useState("");
@@ -36,6 +36,7 @@ function Inscription() {
   const [envoiLcd, setEnvoiLcd] = useState(
     /** @type {"idle" | "sending" | "success" | "error"} */ ("idle"),
   );
+  const [erreurLcd, setErreurLcd] = useState("");
 
   const manquantes = documents.filter((document) => !pieces.includes(document));
   const dossierComplet = inscriptionValidee && manquantes.length === 0;
@@ -72,6 +73,7 @@ function Inscription() {
    */
   function toggleDocument(document) {
     setEnvoiLcd("idle");
+    setErreurLcd("");
     setPieces((actuelles) =>
       actuelles.includes(document)
         ? actuelles.filter((piece) => piece !== document)
@@ -82,10 +84,18 @@ function Inscription() {
   function valider() {
     setInscriptionValidee(true);
     setEnvoiLcd("idle");
+    setErreurLcd("");
   }
 
   async function afficherSurLcd() {
     setEnvoiLcd("sending");
+    setErreurLcd("");
+    if (!ESP32_BASE_URL) {
+      setErreurLcd("L'adresse HTTPS du tunnel ESP32 n'est pas configurée (VITE_ESP32_URL).");
+      setEnvoiLcd("error");
+      return;
+    }
+
     try {
       const etatDisplay = `${classeCourte}/${statutEleve}`;
 
@@ -109,7 +119,13 @@ function Inscription() {
       if (!response2.ok) throw new Error("ESP32 inaccessible");
 
       setEnvoiLcd("success");
-    } catch {
+    } catch (error) {
+      const message = error instanceof TypeError ? error.message.toLowerCase() : "";
+      setErreurLcd(
+        message.includes("fetch") || message.includes("network")
+          ? "Connexion impossible. Vérifiez que le tunnel HTTPS est actif, que VITE_ESP32_URL est correct et que l'ESP32 est connecté au Wi-Fi."
+          : "L'ESP32 n'a pas pu mettre à jour l'écran. Vérifiez l'URL et l'endpoint /display.",
+      );
       setEnvoiLcd("error");
     }
   }
@@ -295,7 +311,7 @@ function Inscription() {
           )}
           {envoiLcd === "error" && (
             <p className="mt-3 text-sm font-medium text-destructive">
-              Connexion impossible. Connectez d&apos;abord cet ordinateur au Wi-Fi de l&apos;ESP32.
+              {erreurLcd}
             </p>
           )}
         </div>
